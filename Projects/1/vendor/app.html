@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Chicago Crime Data</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+              <style>
+             p3, h1 {font-family: times;}
+            p3 {font-size:20px;line-height:1.5em; margin-left: 24px; color: white;}
+            pre {font-size: 2em;}
+            button {color:black;}
+            label {color:black;}
+            label1 {color:white;}
+            div {color:white;}
+            select {color:black;}
+            th {font-weight: bold;}
+            div3 {
+            
+                 
+                border-radius: 6px;
+                min-height:75px;
+                padding:15px;
+                color:white;
+            }
+            
+            br { display: block;
+                margin: 10px 0; line-height:32px;}
+                
+                #resultsTable, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+        </style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                     <span class="light"></span> 
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">App</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Map</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Chicago Crime Data</h1>
+                        <p class="intro-text">An App to easily maneuver through the Chicago Crime Data Set
+                            <br><br>Created by<br> Carl Hilario and Ariana Bazan </p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Chicago Crime Data Searchtool</h2>
+                
+  <!-- div for instructions and form -->
+      <div class="form">
+        <p3 align = "left">Make selections to filter the results.<br>
+        
+        <label1 for="year">Year of the crime</label>
+        <select id="year" type = "text">
+          <option value="2009">2009</option>
+          <option value="2010">2010</option>
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+        </select><br>
+         
+        <label1 for="primary_type">Primary Crime Type</label>
+        <select id="primaryType" type="text">
+          <option value="ARSON">Arson</option>
+          <option value="ASSAULT">Assault</option>
+          <option value="BATTERY">Battery</option>
+          <option value="BURGLARY">Burglary</option>
+          <option value="CONCEALED CARRY LICENSE VIOLATION">Concealed Carry License Violation</option>
+          <option value="CRIMINAL DAMAGE">Criminal Damage</option>
+          <option value="CRIMINAL TRESSPASS">Tresspass</option>
+          <option value="CRIM SEXUAL ASSAULT">Assault</option>
+          <option value="DECEPTIVE PRACTICE">Deceptive Practice</option>
+          <option value="DOMESTIC VIOLENCE">Domestic Violence</option>
+          <option value="GAMBLING">Gambling</option>
+          <option value="HOMICIDE">Homicide</option>
+          <option value="HUMAN TRAFFICKING">Human Trafficking</option>
+          <option value="INTERFERENCE WITH PUBLIC OFFICER">INTRFRNC w Public Officer</option>
+          <option value="INTIMIDATION">Intimidation</option>
+          <option value="KIDNAPPING">Kidnapping</option>
+          <option value="LIQUOR LAW VIOLATION">Liquor Law Violation</option>
+          <option value="MOTOR VEHICLE THEF">Motor Vehicle Theft</option>
+          <option value="NARCOTICS">Narcotics</option>
+          <option value="NON-CRIMINAL">Non-Criminal</option>
+          <option value="OBSCENITY">Obscenity</option>
+          <option value="OFFENSE INVOLVING CHILDREN">Offense involving Children</option>
+          <option value="OTHER OFFENSE">Other Offense</option>
+          <option value="OTHER NARCOTIC VIOLATION">Other Narcotic Violation</option>
+          <option value="PROSTITUTION">Prostitution</option>
+          <option value="PUBLIC INDECENCY">Pub Indecency</option>
+          <option value="PUBLIC PEACE VIOLATION">Pub Peace Violation</option>
+          <option value="RITUALISM">Ritualism</option>
+          <option value="ROBBERY">Robbery</option>
+          <option value="SEX OFFENSE">Sex Offense</option>
+          <option value="STALKING">Stalking</option>
+          <option value="THEFT">Theft</option>
+          <option value="WEAPONS VIOLATION">Weapons Violation</option>
+        </select><br>
+        <br>	
+        <button id="searchUrl">Find crime</button>
+      	</div>
+      	
+       <!-- a div to store the results -->
+    <div3 id="results" style="overflow-y:auto;">
+        <p3> This is an app to check the crimes that have occured in the last 16 years in Chicago
+        <br>
+         To use it, simply enter a year into the search bar and click search
+        <br>
+         Thank you and have a good day!
+        <br>
+         P.S. When clicking on the link to the location, some links won't work as they might not have locations listed.</p3>
+        <br><br>
+
+        
+    </div3 >
+         
+   
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+  
+ 
+
+/*global $*/
+    
+    $(function() {
+    
+        var baseUrl = 'https://data.cityofchicago.org/resource/6zsd-86xi.json';
+        var filter = "?primary_type=";
+        var filterYear =  "&year=";
+        var searchUrl = baseUrl + filter;
+            
+            $("#searchUrl").on("click", function(){
+            
+             $("#results").html("");
+      var searchTerm = $("#primaryType").val();
+      var search = $("#year").val();
+      
+      var url = searchUrl + searchTerm;
+      var urlYear = url +filterYear;
+      
+     
+      
+      
+            $.getJSON(urlYear + search)
+                .done(function (data) {
+                    
+  
+                
+                        $.each(data, function (index,value){
+                               
+                            var html = "<h2>"
+                            + "Crime Type:"
+                            + value.primary_type
+                            + "<br>"
+                            + "Block Name:"
+                            + value.block
+                            + "<br>"
+                            + "Id Number:"
+                            + value.id
+                            + "<br>"
+                            + "Case Number:"
+                            + value.case_number
+                            + "<br>"
+                            + "Year:"
+                            + value.year
+                            + "<br>"
+                            +"Description of crime:"
+                            + value.description
+                            + "<br>"
+                            + "Location Description of Crime:"
+                            + value.location_description
+                            + "<br>"
+                            + '<a href="https://www.google.com/maps/place/' + value.latitude + "," + value.longitude + 'target="blank">Click here to see where the crime occured!</a>'
+                            + "</h2>";
+                        
+                
+                            
+                            $("#results").append(html);
+                                  
+                        });
+                    });
+            });
+                
+                
+                
+    });
+        </script>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2></h2>
+                <p></p>
+                <p><a href="mailto:cjtalavera@cps.edu">cjtalavera@cps.edu</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                  
+                    <li>
+                        <a href="https://github.com/Omegaslayer101" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+   <section>
+       
+       
+   </section>
+   
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Your Website 2016</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
