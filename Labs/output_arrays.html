@@ -4,21 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>repl.it</title>
-      <style>
-        .template {display:none;}
-        
-        .towedVehicle {
-          background-color:silver;
-          border:solid 5px black;
-        }
-        
-        .towedVehicle span {
-          font-family:times;
-        }
-      </style>
+        <style>
+          .template {display: none;}
+          
+          .towedVehicle {
+            background-color: white;
+            border: solid 5px black;
+          }
+          
+          .towedVehicle span {
+          font-family: times;
+          
+          }
+          
+        </style>
+
     </head>
     <body>
-      <div id="#towedVehicletemplate" class="towedVehicle template">
+      <div id="towedVehicleTemplate" class="towedVehicle 
+      template">
         <h2 class="plate"></h2>
         <div>
           Inventory Number: <span class="inventory_number"></span><br>
@@ -29,7 +33,7 @@
         </div>
       </div>
       
-      <div id="#results">
+      <div id="results">
         
       </div>
 
@@ -47,11 +51,11 @@
           var clone;
           
           $.each(data, function (i,v) {
-            clone = $("#towedVehicletemplate").clone();
-            console.log(clone);
-            clone.attr("id",v.plate);
+            clone = $("#towedVehicleTemplate").clone();
+            clone.attr("id" ,v.plate);
             clone.removeClass("template");
-            clone.find(".plate").text(v.plate);
+            
+            clone.find(".plate").text(v.plate)
             clone.find(".color").text(v.color);
             clone.find(".tow_date").text(v.tow_date);
             clone.find(".tow_facility_phone").text(v.tow_facility_phone);
@@ -59,7 +63,7 @@
             clone.find(".towed_to_address").text(v.towed_to_address);
             clone.find(".mapLink").attr("href", "https://www.google.com/maps/place/" + v.towed_to_address);
             $("#results").append(clone);
-          });
+          })
 
         }).fail(function(err) {
           throw err;
