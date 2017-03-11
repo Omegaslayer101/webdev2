@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Food Inspection Data</title>
+        <style>
+            p, h1 {font-family: Times New Roman;}
+            p1 {font-size:1.2em;line-height:1.0em; margin-left: 2px;}
+            pre {font-size: 2em;}
+            p {    border-style: solid;
+                   border-bottom: dotted #ff0000;}
+            p1 {background-color: white;}
+            body {background-color: #ffffb3;
+            
+        </style>
+        <style>
+            .Pass {background-color: green;}
+            .Fail {background-color: red;}
+            .Out  {background-color: gray;}
+        </style>
+    </head>
+    <body>
+        <p>This is a list of all the restaurant establishments in the region of 60618. Several colors represent something, Green = Pass, Red = Failed, Gray = Out of business</p>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        /*
+            This script retrieves food inspection data for zip 60618
+            for the 4th quarter of 2016 from the 
+            City of Chicago Data Portal
+            
+            It stores the returned results in a variable named inspections.
+            
+            This script doesn't update the DOM.
+        
+        
+        */
+        //  variable to hold the returned data
+        var inspections;
+        
+        // base URL to the food inspections data
+        var inspectionsBaseURL = 'https://data.cityofchicago.org/resource/cwig-ma7x.json';
+        
+        // optional filters we're appending - date range and zip
+        var filters = '?$where=inspection_date%20between%20%272016-10-01T00:00:00%27%20and%20%272017-01-01T00:00:00%27%20and%20zip=60618';
+        
+        // full URL
+        var inspections
+        
+        var inspectionsUrl = inspectionsBaseURL + filters;
+        
+        $(
+    
+            
+            $.getJSON(inspectionsUrl)
+                .done (function (data) {
+            $.each(data , 
+            function (index, value) {
+                
+                 
+                
+                var html = "<p1 class ="
+                +value.results
+                + ">" 
+                + value.dba_name 
+                + "</p1>" 
+                + "<p2>" + value.address + value.results + "<br>"
+                +"</p2>"
+                + "<h1>"
+                + value.facility_type + "<br>"
+                + "</h1>"
+                
+            
+                $("body").append(html);
+                
+                
+            }    
+             );       
+                })
+            
+            
+        )
+        
+        
+    </script>
+    </body>
+</html>

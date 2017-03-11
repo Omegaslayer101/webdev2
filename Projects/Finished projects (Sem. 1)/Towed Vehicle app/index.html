@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Find My Towed Vehicle</title>
+        <style>
+            p, h1 {font-family: helvetica;}
+            p {font-size:1.5em;line-height:1.5em; margin-left: 24px;}
+            pre {font-size: 2em;}
+            
+            div {background-color:lightgray; border: 1px solid black; border-radius: 10px;}
+            
+        </style>
+        <style>
+            .Open {background-color: green;}
+            .Status {background-color: red;}
+            .Service_request_number  {background-color: gray;}
+        </style>
+    </head>
+    <body>
+    <div id = "InstructionsElements">
+        <form action="action_page.php">
+  License Plate <br>
+  <input type="text" name="License Plate" value="">
+  <br>
+  Zip Code:<br>
+  <input type="text" name="Zip code" value="">
+  <br><br>
+  <button type="button">Search!</button>
+</form> 
+    </div>
+    <div id = "Results">
+        
+    </div>
+    </body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        
+        //  variable to hold the returned data
+        var inspections;
+        
+        // base URL 
+        var inspectionsBaseURL = 'https://data.cityofchicago.org/resource/rp42-fxjt.json';
+        
+        // optional filters 
+        
+        
+        // full URL
+        var inspections
+        
+        var html = "<h2 class ="
+                + "<p1>"
+                + value.tow_date
+                + "</p1>" 
+                +"<br>"
+                + "<p2>"
+                + value.make
+                + "</p2>"
+                + "<br>"
+                + "<p3>"
+                +value.color
+                + "</p3>" 
+                + "<br>"
+                + "License Plate Number:"
+                +value.plate
+                + "<br>"
+                + "State:"
+                + value.state 
+                +"</h2>"
+                +"<hr>";
+        
+        
+            
+            
+         // end of button handler 
+            
+            
+            
+            
+            
+            
+            
+            
+             
+                 
+            
+            
+    </script>        
+    </body>
+</html>
