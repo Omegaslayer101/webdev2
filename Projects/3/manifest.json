@@ -1,0 +1,23 @@
+{
+  "short_name": "",
+  "name": "",
+  "icons": [
+    {
+      "src":"",
+      "sizes": "",
+      "type": ""
+    }
+  ],
+  "start_url": "",
+  "background_color": "",
+  "Theme_color": "",
+  "display": ""
+}
+
+"icons": [
+  {
+    "src":"stars-tew=proper.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }
+]

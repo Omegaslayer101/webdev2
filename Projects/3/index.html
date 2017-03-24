@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .screen {display:none;
+      
+      
+    }
+    body {
+  padding: 20px;
+  background-image: url('ls.jpg');
+  position: relative;
+}
+.demo-card-event.mdl-card {
+  width: 256px;
+  height: 256px;
+  background-color:#b72c37;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+.mdl-layout__header-row{
+  background-color:#40b9d1;
+}
+.material-icons{
+  background-color:#40b9d1;
+}
+.mdl-layout__drawer-button {
+  background-color:#40b9d1;
+}
+.mdl-layout__header.is-casting-shadow {
+  background-color:#40b9d1;
+}
+  </style>
+  </head>
+  <body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">3 screen app</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">3 screen app</span>
+        <nav class="mdl-navigation">
+          <a id="link1" class="mdl-navigation__link" href="concept_art.html">Screen 1</a>
+          <a id="link2" class="mdl-navigation__link" href="regatta.html">Screen 2</a>
+          <a id="link3" class="mdl-navigation__link" href="#">Screen 3</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div id="screen1" class="screen page-content">Screen 1</div>
+        <div id="screen2" class="screen page-content">Screen 2</div>
+        <div id="screen3" class="screen page-content">Screen 3</div>
+      </main>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+      $("#screen1").show();
+    
+      $("#link1").on("click",function(){
+        $(".screen").hide();
+        $("#screen1").show();
+       });
+    
+       $("#link2").on("click",function(){
+        $(".screen").hide();
+        $("#screen2").show();
+       });
+    
+       $("#link3").on("click",function(){
+        $(".screen").hide();
+        $("#screen3").show();
+       
+        });
+       
+    
+  /*global $*/  
+  </script>
+  </body>
+</html>
