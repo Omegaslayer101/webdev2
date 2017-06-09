@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Example</title>
+<style>
+    canvas {
+      border: #333 10px solid;
+    }
+  </style>
+</head>
+ 
+<body>
+ 
+<canvas id="myCanvas" width="550px" height="350px"></canvas>
+
+
+<script>
+    var canvas = document.querySelector("#myCanvas");
+    var context = canvas.getContext("2d");
+    context.moveTo(160, 130);
+context.lineTo(75, 200);
+context.lineTo(150, 275);
+context.lineTo(250, 230);
+context.closePath();
+ 
+context.lineWidth = 5;
+context.strokeStyle = "#333333";
+context.fillStyle = "#FFCC00";
+ 
+context.fill();
+context.stroke();
+</script>
+ 
+</body>
+ 
+</html>

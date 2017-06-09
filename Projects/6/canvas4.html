@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <style>
+   
+            canvas {
+              border:3px solid black;
+              background-image:url(./images/caves.png);
+            }
+            #player {
+              display:none;
+            }
+            body {
+              background-color:black;
+            }
+          
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600">
+    <img id="player" src="./images/player.png"> 
+    <img id="pew" src="./images/pew2.png">
+    <img id="harm" src="./images/harm.gif">
+    </canvas>
+    
+    <script>
+      var livesRemaining = 3;
+      var score = 0;
+      var level = 1;
+      var paused = false;
+      /*
+      
+        main animation loop
+      */
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      
+      var image = document.getElementById("player");
+      var playerX = 20
+      var playerY = 100
+      
+      var image1 = document.getElementById("pew")
+      var pewX = 200
+      var pewY = Math.floor(Math.random() * 500)
+      
+      var image2 = document.getElementById("harm")
+      var harmX = 200
+      var harmY = Math.floor(Math.random() * 500)
+      
+      function animate() {
+        // clear canvas
+          ctx.clearRect(0,0,canvas.width,canvas.height); 
+        
+        // draw background
+        
+        // draw player
+          ctx.drawImage(image, playerX, playerY, 50, 50);
+        // draw harm
+          ctx.drawImage(image2, harmX, harmY, 50, 50);
+          harmX = harmX - 1
+        // check for and handle edge condition
+          if (harmX < 0)
+          {
+            harmX = canvas.width;
+            harmY = Math.floor(Math.random() * 560);
+          }
+        // draw benefit
+           ctx.drawImage(image1, pewX, pewY, 50, 50);
+           pewX = pewX - 1
+        // check for and handle edge condition
+          if (pewX < 0 )
+          {
+            pewX = canvas.width;
+            pewY = Math.floor(Math.random() * 560);
+          }   
+        // check for harm collision
+          if (playerX < harmX + 35 && playerX + 35 > harmX && playerY < harmY + 35 && playerY + 35 > harmY) 
+          {
+            livesRemaining = livesRemaining - 1
+            harmX = canvas.width;
+            harmY = Math.floor(Math.random() * 560);
+          }  
+          if (livesRemaining <= 0)
+          {
+            paused = true;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.font = "50px Times";
+            ctx.fillText("GAME OVER!", 100, 50);
+            
+          }
+        // check for benefit collision
+          if (playerX < pewX + 35 && playerX + 35 > pewX && playerY < pewY + 35 && playerY + 35 > pewY) 
+          {
+            score = score + 100;
+            pewX = canvas.width;
+            pewY = Math.floor(Math.random() * 560); 
+          }
+        // draw text (lives and score)
+          ctx.font = "15px Arial";
+          ctx.fillStyle = "white";
+          ctx.fillText("Lives: " + livesRemaining, 10, 30);
+          
+          ctx.font = "15px Arial";
+          ctx.fillStyle = "white";
+          ctx.fillText("Score: " + score, 10, 60);
+          
+        //  if the game has not been paused, 
+          if (!paused) {
+            requestAnimationFrame(animate);
+          }
+        
+      }
+          animate();
+      
+      //  event handler for moving player
+      //    use onKeyPress event, and change the player.y value based on the up/down keys
+       document.addEventListener("keydown", move )
+        function move (e) {
+         
+          if (e.keyCode == 40){
+            playerY = playerY + 10 
+          }
+          if (e.keyCode == 38){
+            playerY = playerY - 10 
+          }
+           
+        };
+      
+      
+      
+      
+    </script>
+    
+    
+  </body>
+</html>
