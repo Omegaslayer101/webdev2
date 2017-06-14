@@ -1,6 +1,6 @@
 .portfolio-header {
   position: relative;
-  background-image:url(images/blog09.jpg);
+  background-image:url(images/blckbg.jpg);
 }
 
 .portfolio-header .mdl-layout__header-row {
@@ -173,5 +173,5 @@ footer {
   background-color:#50697a;
 }
 .mdl-layout__content {
-  background-image:url(images/blog09.jpg);
+  background-image:url(images/blckbg.jpg);
 }
